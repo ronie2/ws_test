@@ -5,7 +5,8 @@ import websockets
 
 async def hello():
     port = 1870
-    async with websockets.connect('ws://localhost:{0}'.format(port)) as websocket:
+    host = '172.17.0.2'
+    async with websockets.connect('ws://{0}:{1}'.format(host, port)) as websocket:
 
         name = input("What's your name? ")
         await websocket.send(name)
